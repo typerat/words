@@ -17,7 +17,7 @@ func Get(input []byte) string {
 		seed += int64(e) << ((uint(i) % 8) * 8)
 	}
 
-	// set seed for pseudorandom generator
+	// seed the pseudorandom generator
 	rand.Seed(seed)
 
 	// return pseudorandom words
@@ -27,10 +27,10 @@ func Get(input []byte) string {
 // get almost true random words
 func Random() string {
 	// get some randomness
-	b := time.Now().UnixNano()
+	seed := time.Now().UnixNano()
 
 	// seed the pseudorandom generator
-	rand.Seed(b)
+	rand.Seed(seed)
 
 	// return random words
 	return Adjectives[rand.Intn(len(Adjectives))] + " " + Animals[rand.Intn(len(Animals))]
