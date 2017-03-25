@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-// get pseudorandom words for given byte slice
+// Get returns pseudorandom words for a given byte slice
 func Get(input []byte) string {
 	// hash input data
 	hash := sha256.Sum256(input)
@@ -24,7 +24,7 @@ func Get(input []byte) string {
 	return Adjectives[rand.Intn(len(Adjectives))] + " " + Animals[rand.Intn(len(Animals))]
 }
 
-// get almost true random words
+// Random returns almost true random words
 func Random() string {
 	// get some randomness
 	seed := time.Now().UnixNano()
@@ -34,4 +34,16 @@ func Random() string {
 
 	// return random words
 	return Adjectives[rand.Intn(len(Adjectives))] + " " + Animals[rand.Intn(len(Animals))]
+}
+
+// RandomAdjective returns a random adjective
+func RandomAdjective() string {
+	// get some randomness
+	seed := time.Now().UnixNano()
+
+	// seed the pseudorandom generator
+	rand.Seed(seed)
+
+	// return random words
+	return Adjectives[rand.Intn(len(Adjectives))]
 }
