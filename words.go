@@ -1,3 +1,5 @@
+// Package words generates word combinations consisting of an adjective describing an animal.
+// It is useful for creating human-readable strings to identify versions of a program (as in the Ubuntu naming scheme).
 package words
 
 import (
@@ -6,7 +8,7 @@ import (
 	"time"
 )
 
-// Get returns pseudorandom words for a given byte slice
+// Get returns pseudorandom words for a given byte slice.
 func Get(input []byte) string {
 	// hash input data
 	hash := sha256.Sum256(input)
@@ -24,7 +26,7 @@ func Get(input []byte) string {
 	return adjectives[rand.Intn(len(adjectives))] + " " + animals[rand.Intn(len(animals))]
 }
 
-// Random returns almost true random words
+// Random returns almost true random words.
 func Random() string {
 	// get some randomness
 	seed := time.Now().UnixNano()
@@ -36,7 +38,8 @@ func Random() string {
 	return adjectives[rand.Intn(len(adjectives))] + " " + animals[rand.Intn(len(animals))]
 }
 
-// RandomAdjective returns a random adjective
+// RandomAdjective returns a random adjective.
+// Use the adjective to describe any noun devoid of a description.
 func RandomAdjective() string {
 	// get some randomness
 	seed := time.Now().UnixNano()
