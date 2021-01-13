@@ -21,7 +21,7 @@ func Get(input []byte) string {
 	rand.Seed(seed)
 
 	// return pseudorandom words
-	return Adjectives[rand.Intn(len(Adjectives))] + " " + Animals[rand.Intn(len(Animals))]
+	return adjectives[rand.Intn(len(adjectives))] + " " + animals[rand.Intn(len(animals))]
 }
 
 // Random returns almost true random words
@@ -33,7 +33,7 @@ func Random() string {
 	rand.Seed(seed)
 
 	// return random words
-	return Adjectives[rand.Intn(len(Adjectives))] + " " + Animals[rand.Intn(len(Animals))]
+	return adjectives[rand.Intn(len(adjectives))] + " " + animals[rand.Intn(len(animals))]
 }
 
 // RandomAdjective returns a random adjective
@@ -45,5 +45,5 @@ func RandomAdjective() string {
 	rand.Seed(seed)
 
 	// return random words
-	return Adjectives[rand.Intn(len(Adjectives))]
+	return adjectives[rand.Intn(len(adjectives))]
 }
