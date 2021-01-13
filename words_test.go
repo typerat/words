@@ -7,9 +7,9 @@ import (
 )
 
 func ExampleGet() {
-	words := Get([]byte("pseudorandom"))
+	words := Get("some seed")
 	fmt.Println(words)
-	// Output: idiotic goose
+	// Output: flirtatious tarantula
 }
 
 // random tests are quite useless, but it feels good to have 100% coverage

@@ -3,27 +3,15 @@
 package words
 
 import (
-	"crypto/sha256"
-	"math/rand"
 	"time"
 )
 
-// Get returns pseudorandom words for a given byte slice.
-func Get(input []byte) string {
-	// hash input data
-	hash := sha256.Sum256(input)
-
-	// fold hash to int64
-	var seed int64
-	for i, e := range hash {
-		seed += int64(e) << ((uint(i) % 8) * 8)
-	}
-
-	// seed the pseudorandom generator
-	rand.Seed(seed)
+// Get returns pseudorandom words for a given input.
+func Get(input interface{}) string {
+	r := rand(input)
 
 	// return pseudorandom words
-	return adjectives[rand.Intn(len(adjectives))] + " " + animals[rand.Intn(len(animals))]
+	return adjectives[r%len(adjectives)] + " " + animals[r%len(animals)]
 }
 
 // Random returns almost true random words.
@@ -31,11 +19,8 @@ func Random() string {
 	// get some randomness
 	seed := time.Now().UnixNano()
 
-	// seed the pseudorandom generator
-	rand.Seed(seed)
-
 	// return random words
-	return adjectives[rand.Intn(len(adjectives))] + " " + animals[rand.Intn(len(animals))]
+	return Get(seed)
 }
 
 // RandomAdjective returns a random adjective.
@@ -43,10 +28,8 @@ func Random() string {
 func RandomAdjective() string {
 	// get some randomness
 	seed := time.Now().UnixNano()
-
-	// seed the pseudorandom generator
-	rand.Seed(seed)
+	r := rand(seed)
 
 	// return random words
-	return adjectives[rand.Intn(len(adjectives))]
+	return adjectives[r%len(adjectives)]
 }
