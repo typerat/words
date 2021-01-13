@@ -10,27 +10,24 @@ of a program (as in the Ubuntu naming scheme).
 
 ## Usage
 
-#### func Get
+#### func  Get
 
 ```go
-func Get(input []byte) string
+func Get(input interface{}) string
 ```
+Get returns pseudorandom words for a given input.
 
-Get returns pseudorandom words for a given byte slice.
-
-#### func Random
+#### func  Random
 
 ```go
 func Random() string
 ```
-
 Random returns almost true random words.
 
-#### func RandomAdjective
+#### func  RandomAdjective
 
 ```go
 func RandomAdjective() string
 ```
-
 RandomAdjective returns a random adjective. Use the adjective to describe any
 noun devoid of a description.
