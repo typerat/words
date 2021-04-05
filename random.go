@@ -25,9 +25,9 @@ func rand(seed interface{}) int {
 	// hash input data
 	hash := sha256.Sum256(buf)
 
-	// convert hash to int
-	i := binary.BigEndian.Uint64(hash[:8])
-	i &= math.MaxInt64
+	// convert hash to int32 (to be compatible with 32bit int)
+	i := binary.BigEndian.Uint32(hash[:4])
+	i &= math.MaxInt32
 
 	return int(i)
 }
