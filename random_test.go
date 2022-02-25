@@ -12,19 +12,19 @@ func TestRandomInt(t *testing.T) {
 	}{
 		{
 			seed:     nil,
-			expected: 3016310759690296599,
+			expected: 702289575,
 		},
 		{
 			seed:     1,
-			expected: 7748076420210162913,
+			expected: 1803989619,
 		},
 		{
 			seed:     "woof",
-			expected: 1734376043825659541,
+			expected: 403815890,
 		},
 		{
 			seed:     []byte("hello world"),
-			expected: 4129000111362358792,
+			expected: 961357753,
 		},
 	}
 	for _, tC := range testCases {
