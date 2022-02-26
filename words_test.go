@@ -9,7 +9,7 @@ import (
 func ExampleGet() {
 	words := Get("some seed")
 	fmt.Println(words)
-	// Output: creative cuttlefish
+	// Output: good cuttlefish
 }
 
 // random tests are quite useless, but it feels good to have 100% coverage
